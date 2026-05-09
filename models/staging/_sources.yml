@@ -1,0 +1,29 @@
+version: 1
+
+sources:
+  - name: eoir_raw
+    database: eoir_raw
+    schema: public
+    tables:
+      - name: a_tblcase
+      - name: b_tblproceeding
+      - name: b_tblproceedcharges
+      - name: tblappeal
+      - name: a_tblcaseidentifier
+      - name: tbl_repsassigned
+      - name: tbl_court_appln
+      - name: tbl_casepriorityhistory
+      - name: tbllookupnationality
+      - name: tbllookupbasecity
+      - name: tbllookupjudge
+      - name: tbllanguage
+      - name: tbllookupcasetype
+      - name: tbllookupcustodystatus
+      - name: tblookupcourtdecision
+      - name: tbllookupappealtype
+      - name: tbllookupbiadecision
+      - name: tbllookup_casepriority
+      - name: tbllookupcharges
+      - name: tbllookup_appln
+      - name: tbllookupsex
+      - name: tbllookupfiledby
