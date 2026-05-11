@@ -56,3 +56,17 @@ select
 from b_tblproceeding
 group by 1
 order by 2 desc;
+
+select count(*) from eoir_marts.fact_cases where processing_days < 0;
+
+select count(*) from eoir_stg.cases;
+select count(*) from eoir_marts.fact_cases;
+select count(*) from eoir_marts.fact_cases where latest_proceeding_id is not null;
+
+select distinct strprobono
+from tblappeal
+limit 20;
+
+select count(*) from eoir_marts.fact_proceedings;
+select count(*) from eoir_marts.fact_appeals;
+
