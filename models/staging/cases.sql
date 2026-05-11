@@ -50,9 +50,14 @@ cleaned as (
             then left(date_of_entry, 10)::date 
         end as date_of_entry,
         case 
-            when c_birthdate ~ '^\d{4}-\d{2}-\d{2}'
-            then left(c_birthdate, 10)::date 
-        end as birthdate,
+            when {{ clean_varchar('c_birthdate') }} ~ '^\d{1,2}\/\d{4}'
+            then split_part({{ clean_varchar('c_birthdate') }}, '/', 1)::integer
+        end as birth_month,
+        case
+            when {{ clean_varchar('c_birthdate') }} ~ '^\d{1,2}\/\d{4}'
+            and split_part({{ clean_varchar('c_birthdate') }}, '/', 2) > '1900'
+            then split_part({{ clean_varchar('c_birthdate') }}, '/', 2)::integer
+        end as birth_year, 
         case 
             when c_release_date ~ '^\d{4}-\d{2}-\d{2}'
             then left(c_release_date, 10)::date 

@@ -109,3 +109,58 @@ group by 1
 order by 2
 limit 5
 
+drop schema eior_stg cascade;
+drop schema eior_marts cascade;
+
+select birth_month, birth_year, count(*)
+from eoir_stg.cases
+where birth_month is null
+	or birth_year is null
+group by 1, 2
+
+select
+	-- c_birthdate,
+	count(*)
+from a_tblcase
+where right(c_birthdate, 4) < '1900'
+   or right(c_birthdate, 4) > '2025'
+   or c_birthdate !~ '^\d{1,2}\/\d{4}'
+-- group by 1
+
+with
+
+-- cleaned_ts as (
+
+-- 	select 
+-- 		case 
+--             when c_birthdate ~ '^\d{2}\/\d{4}'
+--             then to_timestamp(c_birthdate, 'MM/YYYY')
+-- 			else c_birthdate
+--         end as birthdate
+-- 	from a_tblcase
+
+-- )
+
+select
+	e_28_date,
+	-- latest_hearing,
+	-- up_bond_date,
+	-- date_of_entry,
+	-- c_release_date,
+	-- address_changedon,
+	-- date_detained,
+	-- date_released,
+	-- detention_date
+	count(*)
+from a_tblcase
+group by 1;
+
+select
+	idncase,
+	count(*)
+from b_tblproceeding
+group by 1
+order by 2 desc
+
+
+
