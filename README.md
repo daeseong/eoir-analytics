@@ -85,8 +85,10 @@ The source data required significant cleaning before analysis:
 - Blank strings alongside true nulls
 - Invalid values in typed columns (i.e. city code in timestamp fields)
 - Legacy fields with mixed codes
+- 134K cases in `fact_cases` with no matching proceeding
+- `lpr_raw` and `zbond_mrg_flag_raw` remains as varchar until further investigation once these deferred fields are needed to determine key metrics.
 
-All cleaning logic is encoded in dbt staging models using and raw tables are never modified.
+All cleaning logic is encoded in dbt staging models and raw tables are never modified.
 
 ---
 
@@ -94,11 +96,11 @@ All cleaning logic is encoded in dbt staging models using and raw tables are nev
 
 Built in Tableau Public, focused on metrics relevant to legal case processing:
 
-- **Case volume over time** — filings by year, court location, and nationality
-- **Decision outcomes** — granted, denied, withdrawn by case type and judge
-- **Processing time** — days from case filing to completion
-- **Representation rates** — represented vs. pro se, and correlation with outcomes
-- **Appeal rates** — how often decisions are appealed and BIA outcomes
+- **Case volume over time** - filings by year, court location, and nationality
+- **Decision outcomes** - granted, denied, withdrawn by case type and judge
+- **Processing time** - days from case filing to completion
+- **Representation rates** - represented vs. pro se, and correlation with outcomes
+- **Appeal rates** - how often decisions are appealed and BIA outcomes
 
 ---
 
@@ -113,7 +115,7 @@ Built in Tableau Public, focused on metrics relevant to legal case processing:
 
 ```bash
 # Clone the repo
-git clone https://github.com/yourusername/eoir-analytics.git
+git clone https://github.com/daeseong/eoir-analytics.git
 cd eoir-analytics
 
 # Create and activate virtual environment
@@ -157,8 +159,10 @@ dbt test          # run data tests
 
 **All columns loaded as varchar in raw layer** — type casting happens exclusively in dbt staging models. This avoids load failures from inconsistent source data and keeps the raw layer as true copy of source data.
 
-**Staging models as views** — staging models are views so they require no additional storage.
+**Staging models as views** - staging models are views so they require no additional storage.
 
-**Mart models as tables** — fact and dimension models are materialized as tables for Tableau.
+**Mart models as tables** - fact and dimension models are materialized as tables for Tableau.
 
-**Invalid data handling** — Majority of tables have invalid rows where the data type is incorrect. During EDA, we found that this is an insignificant amount to affect our analysis (< 0.01%)
+**Invalid data handling** - Majority of tables have invalid rows where the data type is incorrect. During EDA, we found that this is an insignificant amount to affect our analysis (< 0.01%)
+
+**Birthdate storage** - Split as month (int) and year (int) since source data stored only as `MM/YYYY`. 
