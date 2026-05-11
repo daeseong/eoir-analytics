@@ -2,4 +2,5 @@ venv/
 target/
 dbt_packages/
 logs/
+tableau/
 .env
