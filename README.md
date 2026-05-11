@@ -86,11 +86,11 @@ The source data required significant cleaning before analysis:
 - Invalid values in typed columns (i.e. city code in timestamp fields)
 - Legacy fields with mixed codes
 
-All cleaning logic is encoded in dbt staging models using regex guards, `nullif`, and `trim` — raw tables are never modified.
+All cleaning logic is encoded in dbt staging models using and raw tables are never modified.
 
 ---
 
-## Dashboard Metrics
+## Dashboard Metrics (TBD)
 
 Built in Tableau Public, focused on metrics relevant to legal case processing:
 
