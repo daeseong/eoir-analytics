@@ -1,5 +1,5 @@
 # EOIR Immigration Court Analytics
-![Dashboard Preview](https://postimg.cc/dDQrkFs9)
+[![](https://i.postimg.cc/MZVDLZgg/dashboard-preview.png)](https://postimg.cc/dDQrkFs9)
 
 ## Stack
 
