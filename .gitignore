@@ -4,5 +4,4 @@ dbt_packages/
 logs/
 tableau/
 dashboard_viz/visualization.twbx
-dashboard_viz/visualization.twb
 .env
