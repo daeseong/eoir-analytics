@@ -1,4 +1,6 @@
 # EOIR Immigration Court Analytics
+![Dashboard Preview](\dashboard_viz\dashboard_preview.png)
+
 
 End-to-end data analytics pipeline built on 12.5M+ records from the Executive Office for Immigration Review. The project attempts to mirror a professional data stack and focuses on metrics relevant to legal case processing and document pipeline analysis.
 
@@ -92,7 +94,7 @@ All cleaning logic is encoded in dbt staging models and raw tables are never mod
 
 ---
 
-## Dashboard Metrics (TBD)
+## Dashboard Metrics
 
 Built in Tableau Public, focused on metrics relevant to legal case processing:
 
@@ -101,6 +103,8 @@ Built in Tableau Public, focused on metrics relevant to legal case processing:
 - **Processing time** - days from case filing to completion
 - **Representation rates** - represented vs. pro se, and correlation with outcomes
 - **Appeal rates** - how often decisions are appealed and BIA outcomes
+
+[View on Tableau Public](https://public.tableau.com/app/profile/daeseong.kim5228/viz/visualization_17786303636520/EOIRAnalytics?publish=yes)
 
 ---
 
