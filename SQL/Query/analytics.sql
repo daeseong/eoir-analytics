@@ -70,4 +70,3 @@ limit 20;
 select count(*) from eoir_marts.fact_proceedings;
 select count(*) from eoir_marts.fact_appeals;
 
-select columns

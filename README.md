@@ -1,6 +1,7 @@
 # EOIR Immigration Court Analytics
 ![Dashboard Preview](\dashboard_viz\dashboard_preview.png)
 
+## Stack
 
 End-to-end data analytics pipeline built on 12.5M+ records from the Executive Office for Immigration Review. The project attempts to mirror a professional data stack and focuses on metrics relevant to legal case processing and document pipeline analysis.
 
